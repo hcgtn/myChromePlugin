@@ -1,0 +1,34 @@
+{
+  "name": "去广告",
+  "description": "去除浏览器悬浮广告",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "icons": {
+    "16": "icons/18.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "browser_action": {
+    "default_title": "去广告",
+    "default_icon": "icons/128.png",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.jianshu.com/*",
+        "https://*.csdn.net/*"
+      ],
+      "js": [
+        "contentJs/jquery.js",
+        "contentJs/index.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
